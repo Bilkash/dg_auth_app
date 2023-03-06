@@ -1,1 +1,0 @@
-# dg_auth_app
