@@ -1,3 +1,0 @@
-/**
- * handle for LoginButton here
- */

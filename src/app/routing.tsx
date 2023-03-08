@@ -1,8 +1,8 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import { AuthPage } from '../pages/AuthPage';
-import { ProfilePage } from '../pages/ProfilePage';
 import { pathes } from '../shared/config';
+import { AuthPage } from '../pages/auth-page';
+import { ProfilePage } from '../pages/profile-page';
 
 export const router = createBrowserRouter([
   {

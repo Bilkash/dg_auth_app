@@ -1,3 +1,0 @@
-/**
- * handle for LogOutButton here
- */

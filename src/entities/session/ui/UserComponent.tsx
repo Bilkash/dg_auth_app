@@ -1,8 +1,10 @@
 import React from 'react';
-import { UserType } from '../types';
-import { Container } from '../../../shared/ui';
+import { CurrentUser } from '../types';
+import { Container } from 'shared/ui';
 
-export const UserComponent = ({ id, name }: UserType) => {
+export const UserComponent = (currentUser: CurrentUser) => {
+  const { id, name } = currentUser;
+
   return (
     <Container>
       <Container>id: {id}</Container>
