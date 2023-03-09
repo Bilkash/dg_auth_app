@@ -16,17 +16,33 @@ export const logout = async () => {
   await auth0Client.logout();
 };
 
-export const getCurrentUser = async (): Promise<CurrentUser> => {
+export const getCurrentUser = async () => {
   const auth0Client = await readyAuth0Client;
-  const user = await auth0Client.getUser();
   const isAuth = await auth0Client.isAuthenticated();
 
-  if (!isAuth) {
-    throw new Error('no auth');
+  if (isAuth) {
+    return getUser();
   }
+
+  if (isRedirected()) {
+    await auth0Client.handleRedirectCallback();
+
+    return getUser();
+  }
+};
+
+const getUser = async (): Promise<CurrentUser> => {
+  const auth0Client = await readyAuth0Client;
+  const user = await auth0Client.getUser();
 
   return {
     id: user?.sub || '',
     name: user?.nickname || '',
   };
+};
+
+const isRedirected = () => {
+  const query = window.location.search;
+
+  return query.includes('code=') && query.includes('state=');
 };

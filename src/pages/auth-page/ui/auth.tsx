@@ -1,15 +1,18 @@
 import React from 'react';
 import { Box } from 'shared/ui';
 import { LoginButton } from 'feature/session';
+import RedirectWrapper from 'shared/ui/RedirectWrapper';
 
 export const AuthPage = () => {
   return (
-    <div>
-      <h1>LOGIN</h1>
+    <RedirectWrapper>
+      <div>
+        <h1>LOGIN</h1>
 
-      <Box>
-        <LoginButton />
-      </Box>
-    </div>
+        <Box>
+          <LoginButton />
+        </Box>
+      </div>
+    </RedirectWrapper>
   );
 };
